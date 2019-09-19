@@ -14,4 +14,8 @@ export class UserService {
   addUser(user: User){
     return this.http.post(`${this.url}`, user);
   }
+
+  showUsers(){
+    return this.http.get(this.url);
+  }
 }

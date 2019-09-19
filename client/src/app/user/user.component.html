@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-5">
       <form #user="ngForm" (ngSubmit)="onSubmit(user)">
         <div class="form-group">
           <label for="name">Name</label>
@@ -69,6 +69,25 @@
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
       </form>
+    </div>
+    <div class="col-md-7">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users">
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.phone }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
 </div>

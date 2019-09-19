@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from '../shared/user.service';
 import { User } from '../models/user.model';
+import { ShowUser } from './show-user';
 
 @Component({
   selector: 'app-user',
@@ -8,9 +9,14 @@ import { User } from '../models/user.model';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+  users: ShowUser[];
   constructor(private userService: UserService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.userService.showUsers().subscribe((data: ShowUser[]) => {
+      this.users = data;
+    });
+  }
 
   data: User[];
   userModel = new User('', '', '', '', '');
