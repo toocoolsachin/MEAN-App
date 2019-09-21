@@ -29,12 +29,7 @@ exports.getUsers = async (req, res) => {
 exports.editUser = async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
-    res.status(200).json({
-      status: 'success',
-      data: {
-        user
-      }
-    });
+    res.status(200).send(user);
   } catch (error) {
     res.status(404).send(error);
   }
